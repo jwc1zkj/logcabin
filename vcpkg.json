@@ -1,0 +1,9 @@
+{
+  "name": "logcabin",
+  "version": "1.0.0",
+  "builtin-baseline": "054637a2ae63c6c647b3169251759910cc4c984a",
+  "dependencies": [
+    "protobuf",
+    "cryptopp"
+  ]
+}

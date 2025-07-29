@@ -43,7 +43,7 @@ bool
 operator==(const Message& a, const std::string& bStr)
 {
     std::unique_ptr<Message> b(a.New());
-    LogSilencer _;
+    // LogSilencer _;
     TextFormat::ParseFromString(bStr, b.get());
     return (a == *b);
 }
@@ -80,7 +80,7 @@ namespace Internal {
 void
 fromString(const std::string& str, google::protobuf::Message& protoBuf)
 {
-    google::protobuf::LogSilencer _;
+    // google::protobuf::LogSilencer _;
     google::protobuf::TextFormat::ParseFromString(str, &protoBuf);
 }
 
@@ -141,7 +141,7 @@ parse(const Core::Buffer& from,
       google::protobuf::Message& to,
       uint32_t skipBytes)
 {
-    google::protobuf::LogSilencer logSilencer;
+    // google::protobuf::LogSilencer logSilencer;
     if (!to.ParseFromArray(
                         static_cast<const char*>(from.getData()) + skipBytes,
                         Util::downCast<int>(from.getLength() - skipBytes))) {
@@ -166,7 +166,7 @@ serialize(const google::protobuf::Message& from,
               from.InitializationErrorString().c_str(),
               dumpString(from).c_str());
     }
-    uint32_t length = uint32_t(from.ByteSize());
+    uint32_t length = uint32_t(from.ByteSizeLong());
     char* data = new char[skipBytes + length];
     from.SerializeToArray(data + skipBytes, int(length));
     to.setData(data, skipBytes + length, Core::Buffer::deleteArrayFn<char>);
