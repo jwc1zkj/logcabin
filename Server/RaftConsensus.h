@@ -21,10 +21,10 @@
 #include <thread>
 #include <unordered_map>
 
-#include "build/Protocol/Client.pb.h"
-#include "build/Protocol/Raft.pb.h"
-#include "build/Protocol/ServerStats.pb.h"
-#include "build/Server/SnapshotStats.pb.h"
+#include "Protocol/Client.pb.h"
+#include "Protocol/Raft.pb.h"
+#include "Protocol/ServerStats.pb.h"
+#include "Server/SnapshotStats.pb.h"
 #include "Client/SessionManager.h"
 #include "Core/CompatAtomic.h"
 #include "Core/ConditionVariable.h"
@@ -686,7 +686,7 @@ class Configuration {
 
   private:
     /**
-     * A majority of these servers are necessary for a quorum under 
+     * A majority of these servers are necessary for a quorum under
      * STABLE, STAGING, and TRANSITIONAL configurations. (Under TRANSITIONAL, a
      * majority of newServers is also needed.)
      */

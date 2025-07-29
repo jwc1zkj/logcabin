@@ -1,13 +1,19 @@
-set(TGT Protocol)
+set(TGT Server)
 
 find_package(Protobuf REQUIRED)
 
 set(SRC_LIST
-    "Client.proto"
-    "Raft.proto"
-    "RaftLogMetadata.proto"
-    "ServerControl.proto"
-    "ServerStats.proto"
+    "ClientService.cc"
+    "ControlService.cc"
+    "Globals.cc"
+    "RaftConsensus.cc"
+    "RaftConsensusInvariants.cc"
+    "RaftService.cc"
+    "ServerStats.cc"
+    "StateMachine.cc"
+    "SnapshotMetadata.proto"
+    "SnapshotStateMachine.proto"
+    "SnapshotStats.proto"
 )
 
 add_library(${TGT} STATIC
@@ -22,6 +28,7 @@ protobuf_generate(
 target_include_directories(${TGT}
     PUBLIC ${PROJECT_SOURCE_DIR}
     ${CMAKE_CURRENT_BINARY_DIR}
+    ${PROJECT_BINARY_DIR}
 )
 
 target_link_libraries(${TGT}
@@ -29,4 +36,5 @@ target_link_libraries(${TGT}
     protobuf::libprotoc
     protobuf::libprotobuf
     protobuf::libprotobuf-lite
+    Protocol
 )

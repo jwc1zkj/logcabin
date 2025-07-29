@@ -1,13 +1,11 @@
-set(TGT Protocol)
+set(TGT Tree)
 
 find_package(Protobuf REQUIRED)
 
 set(SRC_LIST
-    "Client.proto"
-    "Raft.proto"
-    "RaftLogMetadata.proto"
-    "ServerControl.proto"
-    "ServerStats.proto"
+    "ProtoBuf.cc"
+    "Tree.cc"
+    "Snapshot.proto"
 )
 
 add_library(${TGT} STATIC
@@ -16,12 +14,10 @@ add_library(${TGT} STATIC
 
 protobuf_generate(
     TARGET ${TGT}
-    IMPORT_DIRS ${PROJECT_SOURCE_DIR}
 )
 
 target_include_directories(${TGT}
     PUBLIC ${PROJECT_SOURCE_DIR}
-    ${CMAKE_CURRENT_BINARY_DIR}
 )
 
 target_link_libraries(${TGT}
@@ -29,4 +25,5 @@ target_link_libraries(${TGT}
     protobuf::libprotoc
     protobuf::libprotobuf
     protobuf::libprotobuf-lite
+    Protocol
 )

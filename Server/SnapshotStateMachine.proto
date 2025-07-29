@@ -21,7 +21,9 @@
 
 package LogCabin.Server.SnapshotStateMachine;
 
-import "build/Protocol/Client.proto";
+/* import "Protocol/Client.proto"; */
+
+import "Protocol/Client.proto";
 
 /**
  * An entry in the version history table.
@@ -68,4 +70,3 @@ message Header {
      */
     repeated Session session = 2;
 };
-

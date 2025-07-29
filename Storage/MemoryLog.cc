@@ -18,7 +18,7 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
-#include "build/Protocol/Raft.pb.h"
+#include "Protocol/Raft.pb.h"
 #include "Core/Buffer.h"
 #include "Core/Debug.h"
 #include "Core/ProtoBuf.h"
@@ -85,7 +85,7 @@ MemoryLog::getSizeBytes() const
     // TODO(ongaro): keep this pre-calculated for efficiency
     uint64_t size = 0;
     for (auto it = entries.begin(); it < entries.end(); ++it)
-        size += uint64_t(it->ByteSize());
+        size += uint64_t(it->ByteSizeLong());
     return size;
 }
 

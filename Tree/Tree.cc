@@ -16,7 +16,7 @@
 
 #include <cassert>
 
-#include "build/Protocol/ServerStats.pb.h"
+#include "Protocol/ServerStats.pb.h"
 #include "build/Tree/Snapshot.pb.h"
 #include "Core/Debug.h"
 #include "Core/StringUtil.h"

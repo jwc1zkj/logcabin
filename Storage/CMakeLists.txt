@@ -1,13 +1,18 @@
-set(TGT Protocol)
+set(TGT Storage)
 
 find_package(Protobuf REQUIRED)
 
 set(SRC_LIST
-    "Client.proto"
-    "Raft.proto"
-    "RaftLogMetadata.proto"
-    "ServerControl.proto"
-    "ServerStats.proto"
+    "FilesystemUtil.cc"
+    "Layout.cc"
+    "Log.cc"
+    "LogFactory.cc"
+    "MemoryLog.cc"
+    "SegmentedLog.cc"
+    "SimpleFileLog.cc"
+    "SnapshotFile.cc"
+    "SegmentedLog.proto"
+    "SimpleFileLog.proto"
 )
 
 add_library(${TGT} STATIC
@@ -29,4 +34,5 @@ target_link_libraries(${TGT}
     protobuf::libprotoc
     protobuf::libprotobuf
     protobuf::libprotobuf-lite
+    Protocol
 )

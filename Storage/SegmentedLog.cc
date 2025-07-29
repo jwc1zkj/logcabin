@@ -22,7 +22,7 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
-#include "build/Protocol/Raft.pb.h"
+#include "Protocol/Raft.pb.h"
 #include "Core/Checksum.h"
 #include "Core/Debug.h"
 #include "Core/ProtoBuf.h"
@@ -757,7 +757,7 @@ SegmentedLog::truncateSuffix(uint64_t newEndIndex)
 void
 SegmentedLog::updateMetadata()
 {
-    if (Log::metadata.ByteSize() == 0)
+    if (Log::metadata.ByteSizeLong() == 0)
         metadata.clear_raft_metadata();
     else
         *metadata.mutable_raft_metadata() = Log::metadata;
