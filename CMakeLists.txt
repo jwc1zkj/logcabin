@@ -23,6 +23,20 @@ add_subdirectory("Server")
 add_subdirectory("Storage")
 add_subdirectory("Tree")
 
+set(TGT logcabin)
+add_library(${TGT} INTERFACE)
+target_link_libraries(${TGT}
+    INTERFACE
+    Client
+    Tree
+    Protocol
+    RPC
+    Event
+    Core
+)
+
+add_subdirectory("Examples")
+
 set(TGT LogCabin)
 
 add_executable(${TGT}
