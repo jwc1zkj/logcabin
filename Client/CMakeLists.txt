@@ -1,8 +1,5 @@
 set(TGT Client)
 
-find_package(cryptopp CONFIG REQUIRED)
-find_package(protobuf CONFIG REQUIRED)
-
 set(SRC_LIST
     "Backoff.cc"
     "Client.cc"
@@ -24,19 +21,3 @@ target_include_directories(${TGT}
 target_link_libraries(${TGT}
     PUBLIC Protocol
 )
-
-# set(TGT ServerControl)
-
-# add_executable(${TGT}
-#     "ServerControl.cc"
-# )
-
-# target_link_libraries(${TGT} PRIVATE
-#     "liblogcabin"
-#     "pthread"
-#     "rt"
-#     protobuf::libprotoc
-#     protobuf::libprotobuf
-#     protobuf::libprotobuf-lite
-#     cryptopp::cryptopp
-# )

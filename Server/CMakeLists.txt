@@ -1,7 +1,5 @@
 set(TGT Server)
 
-find_package(Protobuf REQUIRED)
-
 set(SRC_LIST
     "ClientService.cc"
     "ControlService.cc"

@@ -1,7 +1,5 @@
 set(TGT Core)
 
-find_package(Protobuf REQUIRED)
-
 set(SRC_LIST
     "Buffer.cc"
     "Checksum.cc"

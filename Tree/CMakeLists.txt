@@ -1,7 +1,5 @@
 set(TGT Tree)
 
-find_package(Protobuf REQUIRED)
-
 set(SRC_LIST
     "ProtoBuf.cc"
     "Tree.cc"

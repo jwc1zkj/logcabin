@@ -1,7 +1,5 @@
 set(TGT Protocol)
 
-find_package(Protobuf REQUIRED)
-
 set(SRC_LIST
     "Client.proto"
     "Raft.proto"

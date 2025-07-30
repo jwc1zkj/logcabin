@@ -1,7 +1,5 @@
 set(TGT Storage)
 
-find_package(Protobuf REQUIRED)
-
 set(SRC_LIST
     "FilesystemUtil.cc"
     "Layout.cc"
