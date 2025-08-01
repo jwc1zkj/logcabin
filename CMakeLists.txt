@@ -35,6 +35,15 @@ target_link_libraries(${TGT}
     Core
 )
 
+set(TGT ServerControl)
+
+add_executable(${TGT}
+    "Client/ServerControl.cc"
+)
+target_link_libraries(${TGT}
+    PRIVATE logcabin
+)
+
 add_subdirectory("Examples")
 
 set(TGT LogCabin)
