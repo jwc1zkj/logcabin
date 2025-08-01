@@ -55,8 +55,8 @@ target_link_libraries(${TGT}
     Core
     pthread
     rt
-    protobuf::libprotoc
     protobuf::libprotobuf
-    protobuf::libprotobuf-lite
     cryptopp::cryptopp
 )
+
+add_subdirectory("test")

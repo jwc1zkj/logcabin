@@ -24,7 +24,5 @@ target_include_directories(${TGT}
 
 target_link_libraries(${TGT}
     PUBLIC
-    protobuf::libprotoc
     protobuf::libprotobuf
-    protobuf::libprotobuf-lite
 )
